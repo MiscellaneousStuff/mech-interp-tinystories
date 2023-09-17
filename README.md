@@ -34,6 +34,8 @@ Prompt:
 
 ### Preliminary Analysis of MLP Layer in Transformer Block
 
+Prompt: "Jack and Lily liked to watch the moon at night. They noticed that the moon changed its shape every night. Sometimes the moon was big and round, and sometimes it was"
+
 #### 4096 MLP: blocks.0.mlp.hook_post (PreLN, GeLU)
 Mean: -0.0483 \
 Standard Deviation: 0.2245 \
