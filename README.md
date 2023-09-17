@@ -11,7 +11,7 @@ Prompt:
 
 [Results](https://docs.google.com/spreadsheets/d/1WVAhf0EX5YMSBgO_oIZO3crwaR0GnPcI6ERkNzAJfwE/edit?usp=sharing)
 
-### Preliminary Breakdown of Attention Heads
+### Preliminary Breakdown of Attention Heads in Transformer Block
 
 | Head | Description |
 | ---- | ----------- |
@@ -32,6 +32,37 @@ Prompt:
 | 14 | Attends to narrative structures and relationships. Start of text token, commas, attends to prior proper nouns on speech marks, the word "asks" i.e., verb before proper noun "Tom," attending to "banana" on token "find." Attention head is trying to keep a high-level summary of ongoing narrative, acting as a guide when generating or predicting subsequent tokens? |
 | 15 | Attending to the start of a clause? |
 
+### Preliminary Analysis of MLP Layer in Transformer Block
+
+#### 4096 MLP: blocks.0.mlp.hook_post (PreLN, GeLU)
+Mean: -0.0483 \
+Standard Deviation: 0.2245 \
+Max Value: 11.3458 \
+Min Value: -0.1700 \
+1st Quartile (25th Percentile): -0.1525 \
+Median (50th Percentile): -0.1033 \
+3rd Quartile (75th Percentile): -0.0296
+
+
+#### Final Embed: ln_final.hook_normalized (PreLN, GeLU)
+Mean: -0.0357 \
+Standard Deviation: 1.4694 \
+Max Value: 14.2448 \
+Min Value: -7.1327 \
+1st Quartile (25th Percentile): -0.9617 \
+Median (50th Percentile): -0.0358 \
+3rd Quartile (75th Percentile): 0.8951
+
+#### 1024 MLP: blocks.0.hook_mlp_out (PostLN)
+Mean: 0.0035 \
+Standard Deviation: 0.6573 \
+Max Value: 55.2631 \
+Min Value: -2.2938 \
+1st Quartile (25th Percentile): -0.2691 \
+Median (50th Percentile): -0.0122 \
+3rd Quartile (75th Percentile): 0.2459
+
+<!--
 ## Analysis Plan
 
 **To analyze the MLP layer after attention in the transformer block of GPT-2, you'd want to examine how the model transforms the activations output by the attention mechanism, and how these are used in the subsequent feed-forward layer.**
@@ -77,3 +108,4 @@ Prompt:
 - Dive deeper into individual neurons or positions in the MLP. Are there neurons that activate particularly strongly for certain input patterns?
 
 **Lastly, remember that analyzing neural network activations is more of an art than an exact science. The above steps provide heuristics and might not lead to definite conclusions. Still, they can offer valuable insights into the model's behavior.**
+-->
