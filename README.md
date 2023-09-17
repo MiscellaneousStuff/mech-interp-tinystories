@@ -25,7 +25,7 @@ Prompt:
 | 7 | Attending to backward-related parts of skip n-grams? |
 | 8 | Attends to the current token. |
 | 9 | ~Attends to current and previous proper nouns? |
-| 10 | ? |
+| 10 | ~Attends to all of the other tokens within same clause/sentence by varying amounts. |
 | 11 | Attends to the start of a clause? Attends to the starting speech mark within speech. |
 | 12 | ~Attending to the previous token unigram / bigram. |
 | 13 | ~~Subject of the sentence? |
