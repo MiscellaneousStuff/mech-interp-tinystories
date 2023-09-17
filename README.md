@@ -39,30 +39,29 @@ Prompt: "Jack and Lily liked to watch the moon at night. They noticed that the m
 #### 4096 MLP: blocks.0.mlp.hook_post (PreLN, GeLU)
 Mean: -0.0483 \
 Standard Deviation: 0.2245 \
-Max Value: 11.3458 \
 Min Value: -0.1700 \
 1st Quartile (25th Percentile): -0.1525 \
 Median (50th Percentile): -0.1033 \
-3rd Quartile (75th Percentile): -0.0296
-
-
-#### Final Embed: ln_final.hook_normalized (PreLN, GeLU)
-Mean: -0.0357 \
-Standard Deviation: 1.4694 \
-Max Value: 14.2448 \
-Min Value: -7.1327 \
-1st Quartile (25th Percentile): -0.9617 \
-Median (50th Percentile): -0.0358 \
-3rd Quartile (75th Percentile): 0.8951
+3rd Quartile (75th Percentile): -0.0296 \
+Max Value: 11.3458 
 
 #### 1024 MLP: blocks.0.hook_mlp_out (PostLN)
 Mean: 0.0035 \
 Standard Deviation: 0.6573 \
-Max Value: 55.2631 \
 Min Value: -2.2938 \
 1st Quartile (25th Percentile): -0.2691 \
 Median (50th Percentile): -0.0122 \
-3rd Quartile (75th Percentile): 0.2459
+3rd Quartile (75th Percentile): 0.2459 \
+Max Value: 55.2631 
+
+#### Final Embed: ln_final.hook_normalized (PreLN, GeLU)
+Mean: -0.0357 \
+Standard Deviation: 1.4694 \
+Min Value: -7.1327 \
+1st Quartile (25th Percentile): -0.9617 \
+Median (50th Percentile): -0.0358 \
+3rd Quartile (75th Percentile): 0.8951 \
+Max Value: 14.2448 
 
 <!--
 ## Analysis Plan
