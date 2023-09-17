@@ -34,45 +34,46 @@ Prompt:
 
 ## Analysis Plan
 
-To analyze the MLP layer after attention in the transformer block of GPT-2, you'd want to examine how the model transforms the activations output by the attention mechanism, and how these are used in the subsequent feed-forward layer.
+**To analyze the MLP layer after attention in the transformer block of GPT-2, you'd want to examine how the model transforms the activations output by the attention mechanism, and how these are used in the subsequent feed-forward layer.**
 
-Given the hooks you've set, and your intention to investigate the MLP layer following the attention mechanism, you'll want to look into these specific hooks:
+**Given the hooks you've set, and your intention to investigate the MLP layer following the attention mechanism, you'll want to look into these specific hooks:**
 
-'blocks.0.hook_attn_out': This is the output of the attention mechanism. This tensor would be the starting point for our analysis as it represents the aggregated context from attention heads.
+- `'blocks.0.hook_attn_out'`: This is the output of the attention mechanism. This tensor would be the starting point for our analysis as it represents the aggregated context from attention heads.
 
-'blocks.0.mlp.hook_pre': Represents the activations after the input is passed through the first layer of the MLP but before the activation function (like GELU in GPT-2).
+- `'blocks.0.mlp.hook_pre'`: Represents the activations after the input is passed through the first layer of the MLP but before the activation function (like GELU in GPT-2).
 
-'blocks.0.mlp.hook_post': Represents the activations after the activation function is applied.
+- `'blocks.0.mlp.hook_post'`: Represents the activations after the activation function is applied.
 
-'blocks.0.hook_mlp_out': This is the output of the MLP layer.
+- `'blocks.0.hook_mlp_out'`: This is the output of the MLP layer.
 
-Steps to Analyze the MLP Activations:
-Basic Statistics:
+**Steps to Analyze the MLP Activations:**
 
-Compute mean, variance, and other basic statistics for each of the above hooks. Are there any noticeable differences before and after the MLP layer?
-Visualization:
+**Basic Statistics:**
+- Compute mean, variance, and other basic statistics for each of the above hooks. Are there any noticeable differences before and after the MLP layer?
 
-Plot heatmaps of the activations (you can do this for a batch of tokens or individual tokens).
-Compare the difference between 'hook_attn_out' and 'hook_mlp_out'. Look for significant changes or patterns.
-Distribution Analysis:
+**Visualization:**
+- Plot heatmaps of the activations (you can do this for a batch of tokens or individual tokens).
+- Compare the difference between `'hook_attn_out'` and `'hook_mlp_out'`. Look for significant changes or patterns.
 
-Plot histograms to see the distribution of activations. Is there a shift in the distribution after passing through the MLP? Are activations more spread out or concentrated?
-Dimensionality Reduction:
+**Distribution Analysis:**
+- Plot histograms to see the distribution of activations. Is there a shift in the distribution after passing through the MLP? Are activations more spread out or concentrated?
 
-Use PCA or t-SNE to visualize the activations in a reduced space. This can help you identify any clusters or patterns in the activations.
-Relationship with Attention Heads:
+**Dimensionality Reduction:**
+- Use PCA or t-SNE to visualize the activations in a reduced space. This can help you identify any clusters or patterns in the activations.
 
-As you have analyzed attention patterns, try to correlate specific attention behaviors with patterns in MLP activations. For instance, if a particular token had strong attention from a certain head, how does its activation change in the MLP?
-Activation Dynamics:
+**Relationship with Attention Heads:**
+- As you have analyzed attention patterns, try to correlate specific attention behaviors with patterns in MLP activations. For instance, if a particular token had strong attention from a certain head, how does its activation change in the MLP?
 
-Analyze how different the activations are for different input samples. For instance, given two different sentences, how does the distribution of activations in 'hook_mlp_out' differ?
-High Activation Tokens:
+**Activation Dynamics:**
+- Analyze how different the activations are for different input samples. For instance, given two different sentences, how does the distribution of activations in `'hook_mlp_out'` differ?
 
-Identify tokens that have particularly high (or low) activations in 'hook_mlp_out'. Are there specific patterns or token types that consistently result in high activations?
-Ablation Study:
+**High Activation Tokens:**
+- Identify tokens that have particularly high (or low) activations in `'hook_mlp_out'`. Are there specific patterns or token types that consistently result in high activations?
 
-A more advanced analysis could involve nullifying certain activations (setting them to zero) and observing the impact on the model's output. This could give insights into the importance of specific activations.
-Neuron-Level Analysis:
+**Ablation Study:**
+- A more advanced analysis could involve nullifying certain activations (setting them to zero) and observing the impact on the model's output. This could give insights into the importance of specific activations.
 
-Dive deeper into individual neurons or positions in the MLP. Are there neurons that activate particularly strongly for certain input patterns?
-Lastly, remember that analyzing neural network activations is more of an art than an exact science. The above steps provide heuristics and might not lead to definite conclusions. Still, they can offer valuable insights into the model's behavior.
+**Neuron-Level Analysis:**
+- Dive deeper into individual neurons or positions in the MLP. Are there neurons that activate particularly strongly for certain input patterns?
+
+**Lastly, remember that analyzing neural network activations is more of an art than an exact science. The above steps provide heuristics and might not lead to definite conclusions. Still, they can offer valuable insights into the model's behavior.**
