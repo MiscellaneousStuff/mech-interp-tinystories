@@ -63,6 +63,11 @@ Median (50th Percentile): -0.0358 \
 3rd Quartile (75th Percentile): 0.8951 \
 Max Value: 14.2448
 
+It seems like the 4096-dim MLP creates a foundational, more concentrated representation of the
+information which the 1024-dim MLP then diversifies and possibly disentangles further. This
+process might be essential to allow subsequent layers or blocks in the model to effectively
+work with a broader range of information.
+
 <!--
 ## Analysis Plan
 
