@@ -34,6 +34,12 @@ Prompt:
 
 ### Preliminary Analysis of MLP Layer in Transformer Block
 
+Refer to `tinystories_activations.py` for the training script of the Sparse Autoencoder
+which is used to decompose the MLP layer with Dictionary Learning.
+
+<!--
+### Preliminary Analysis of MLP Layer in Transformer Block
+
 Prompt: "Jack and Lily liked to watch the moon at night. They noticed that the moon changed its shape every night. Sometimes the moon was big and round, and sometimes it was"
 
 #### 4096 MLP: blocks.0.mlp.hook_post (PreLN, GeLU)
@@ -67,6 +73,7 @@ It seems like the 4096-dim MLP creates a foundational, more concentrated represe
 information which the 1024-dim MLP then diversifies and possibly disentangles further. This
 process might be essential to allow subsequent layers or blocks in the model to effectively
 work with a broader range of information.
+-->
 
 <!--
 ## Analysis Plan
